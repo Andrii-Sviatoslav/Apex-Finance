@@ -15,7 +15,7 @@ import {
 // Шляхи до зображень, використовуючи надані імена файлів
 const logoUrl = "/image.png";
 const founder1ImageUrl = "/1755782105149.jpg";
-const founder2ImageUrl = "/image_b2fe3d.png"; // Замінено на файл користувача
+const founder2ImageUrl = "/1722771291279.jpg"; // Замінено на файл користувача
 const founder3ImageUrl = "/IMG_20250717_213406.jpg"; // Замінено на файл користувача
 
 function LandingPage() {
