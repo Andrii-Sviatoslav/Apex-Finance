@@ -6,7 +6,7 @@ import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInWithCustomToken, signInAnonymously } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
-// Імпортуємо всі компоненти сторінок з ваших папок, явно вказуючи розширення .js
+// Імпорт
 import Dashboard from './pages/Dashboard/Dashboard.js';
 import Login from './pages/Auth/Login.js';
 import Register from './pages/Auth/Register.js';
@@ -18,8 +18,8 @@ import AdminPanel from './pages/AdminPanel/AdminPanel.js';
 import ProfileSettings from './pages/ProfileSettings/ProfileSettings.js';
 import LandingPage from './pages/LandingPage/LandingPage.js';
 import NFTProjectPage from './pages/NFTProjectPage/NFTProjectPage.js';
-
-// Імпорт нових сторінок з вашої структури файлів
+import BudgetManager from './pages/BudgetManager/BudgetManager.js';
+// Імпорт 
 import AboutUs from './pages/AboutUs/AboutUs.js';
 import Blog from './pages/Blog/Blog.js';
 import Careers from './pages/Careers/Careers.js';

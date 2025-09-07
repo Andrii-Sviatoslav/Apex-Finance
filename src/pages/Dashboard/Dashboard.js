@@ -7,23 +7,19 @@ import {
     ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon,
     BanknotesIcon, CreditCardIcon, UsersIcon, ListBulletIcon, ChartBarIcon,
     PencilIcon, TrashIcon, ExclamationTriangleIcon, PlusIcon, CurrencyDollarIcon,
-    UserGroupIcon, BriefcaseIcon // Змінено FamilyIcon на UserGroupIcon
+    UserGroupIcon, BriefcaseIcon 
 } from '@heroicons/react/24/outline';
 
 // Імпорт функцій Firestore
 import { collection, query, where, onSnapshot, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 
-// Реєстрація компонентів Chart.js та FillerPlugin
+
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, ArcElement, BarElement, Tooltip, Legend, FillerPlugin);
 
-// URL для логотипу (посилається на файл у папці public)
+// URL для логотипу
 const logoUrl = "/image.png";
 
-// ====================================================================================
-// ВАЖЛИВО: ЗАМІНІТЬ ЦЕ НА ВАШ АКТУАЛЬНИЙ ADMIN USER ID з Firebase Authentication.
-// Це userId облікового запису, який має доступ до адмін-панелі.
-// ====================================================================================
 const ADMIN_USER_ID = "CawE33GEkZhLFsapAdBr3saDV3F3";
 
 // Функція для отримання назви місяця українською
@@ -35,7 +31,7 @@ const getMonthName = (monthIndex) => {
     return months[monthIndex];
 };
 
-function Dashboard({ db, auth, userId, userData }) { // Додано userData
+function Dashboard({ db, auth, userId, userData }) { 
     // Стан для динамічних даних, отриманих з Firestore
     const [accounts, setAccounts] = useState([]);
     const [transactions, setTransactions] = useState([]);
@@ -67,8 +63,8 @@ function Dashboard({ db, auth, userId, userData }) { // Додано userData
     const [showEditBudgetModal, setShowEditBudgetModal] = useState(false);
     const [showDeleteBudgetConfirm, setShowDeleteBudgetConfirm] = useState(false);
     const [selectedBudget, setSelectedBudget] = useState(null);
-    const [newBudget, setNewBudget] = useState({ name: '', limit: 0, spent: 0, category: '' }); // Додано limit, spent, category
-    const [editBudget, setEditBudget] = useState({ name: '', limit: 0, spent: 0, category: '' }); // Додано limit, spent, category
+    const [newBudget, setNewBudget] = useState({ name: '', limit: 0, spent: 0, category: '' }); 
+    const [editBudget, setEditBudget] = useState({ name: '', limit: 0, spent: 0, category: '' }); 
 
     // Стан для календаря
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
@@ -109,7 +105,7 @@ function Dashboard({ db, auth, userId, userData }) { // Додано userData
             if (t.type === 'income') {
                 dailySummary[dateKey].income += t.amount;
             } else { // expense
-                dailySummary[dateKey].expense += Math.abs(t.amount); // Переконайтеся, що витрати додаються як позитивні числа для відображення
+                dailySummary[dateKey].expense += Math.abs(t.amount); 
             }
             dailySummary[dateKey].count += 1;
             const category = t.category || 'Без категорії';
@@ -145,8 +141,8 @@ function Dashboard({ db, auth, userId, userData }) { // Додано userData
                 {
                     label: 'Чистий баланс',
                     data: lineValues,
-                    borderColor: '#4A5568', // Темно-сірий для більш ділового вигляду
-                    backgroundColor: 'rgba(74, 85, 104, 0.2)', // Напівпрозорий темно-сірий
+                    borderColor: '#4A5568', 
+                    backgroundColor: 'rgba(74, 85, 104, 0.2)', 
                     fill: true,
                     tension: 0.4,
                     pointRadius: 0,
@@ -160,7 +156,7 @@ function Dashboard({ db, auth, userId, userData }) { // Додано userData
             if (!acc[category]) {
                 acc[category] = 0;
             }
-            acc[category] += Math.abs(transaction.amount); // Витрати завжди позитивні для пирога
+            acc[category] += Math.abs(transaction.amount);
             return acc;
         }, {});
 
@@ -227,8 +223,8 @@ function Dashboard({ db, auth, userId, userData }) { // Додано userData
             return;
         }
 
-        setLoading(true); // Завжди встановлюємо loading на true при початку цього ефекту
-        setLoadedSourcesCount(0); // Скидаємо лічильник завантажених джерел
+        setLoading(true); 
+        setLoadedSourcesCount(0);
 
         const unsubscribes = [];
 
@@ -306,8 +302,7 @@ function Dashboard({ db, auth, userId, userData }) { // Додано userData
         }
     }, [loadedSourcesCount]);
 
-    // Ефект для обробки даних після їх завантаження або зміни
-    // Цей ефект запуститься лише тоді, коли `loading` стане `false`
+    // Ефект для обробки даних після їх завантаження
     useEffect(() => {
         if (!loading) {
             // Перевіряємо, чи є хоч якісь дані або ж усі джерела порожні
@@ -315,8 +310,7 @@ function Dashboard({ db, auth, userId, userData }) { // Додано userData
             if (hasData || loadedSourcesCount === 4) { // Обробляємо дані, якщо вони є, або якщо всі джерела завантажені (навіть якщо порожні)
                 processFinancialData(transactions, accounts);
             } else if (!hasData && loadedSourcesCount < 4) {
-                 // Ще не всі джерела завантажені або даних немає, але це не фінальний стан.
-                 // Нічого не робити, чекати повного завантаження.
+            
             }
         }
     }, [transactions, accounts, goals, budgets, loading, processFinancialData, loadedSourcesCount]);
@@ -526,9 +520,7 @@ function Dashboard({ db, auth, userId, userData }) { // Додано userData
         ? `${userData.firstName} ${userData.lastName}`
         : userData?.email || 'Користувач';
 
-    // Визначення URL фото профілю, якщо воно є в userData
-    // Примітка: profileImageUrl має бути прямою URL-адресою зображення (наприклад, з Google Photos, Imgur тощо),
-    // а не URL-адресою сторінки, яка містить зображення.
+    
     const profileImageUrl = userData?.profileImageUrl || 'https://placehold.co/40x40/aabbcc/ffffff?text=NP'; // Використовуйте заглушку, якщо немає зображення
 
     // Фіктивні дані для сімейних акаунтів та доходів
@@ -652,7 +644,7 @@ function Dashboard({ db, auth, userId, userData }) { // Додано userData
                     {/* Overall Balance */}
                     <div className="bg-white p-7 rounded-2xl shadow-lg border border-gray-100 col-span-1 md:col-span-1 flex flex-col justify-between transform transition-transform duration-300 hover:scale-[1.02]">
                         <h2 className="text-xl font-semibold text-gray-700 mb-4">Загальний баланс</h2>
-                        <p className="text-5xl font-extrabold text-blue-800">${overallBalance.toFixed(2)}</p>
+                        <p className="text-5xl font-extrabold text-blue-800">₴{overallBalance.toFixed(2)}</p>
                     </div>
 
                     {/* Account Balances */}
@@ -712,7 +704,7 @@ function Dashboard({ db, auth, userId, userData }) { // Додано userData
                     {/* Family Accounts */}
                     <div className="bg-white p-7 rounded-2xl shadow-lg border border-gray-100 flex flex-col justify-between">
                         <h2 className="text-xl font-semibold text-gray-700 mb-4 flex items-center">
-                            <UserGroupIcon className="h-6 w-6 text-gray-600 mr-2" /> Сімейні акаунти
+                            <UserGroupIcon className="h-6 w-6 text-gray-600 mr-2" /> Сімейні акаунти-В процесі розробки
                         </h2>
                         {familyAccounts.length === 0 ? (
                             <p className="text-gray-500 text-base">Немає доданих сімейних акаунтів.</p>
@@ -731,7 +723,7 @@ function Dashboard({ db, auth, userId, userData }) { // Додано userData
                     {/* Income Sources */}
                     <div className="bg-white p-7 rounded-2xl shadow-lg border border-gray-100 flex flex-col justify-between">
                         <h2 className="text-xl font-semibold text-gray-700 mb-4 flex items-center">
-                            <BriefcaseIcon className="h-6 w-6 text-gray-600 mr-2" /> Джерела доходу
+                            <BriefcaseIcon className="h-6 w-6 text-gray-600 mr-2" /> Джерела доходу - В процесі розробки
                         </h2>
                         {incomeSources.length === 0 ? (
                             <p className="text-gray-500 text-base">Немає доданих джерел доходу.</p>

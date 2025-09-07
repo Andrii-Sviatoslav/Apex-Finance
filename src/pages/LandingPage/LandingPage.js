@@ -55,14 +55,14 @@ function LandingPage() {
               APEX FINANCE
             </span>
           </div>
-          {/* Мобільне меню - кнопка відкриття */}
+          {/* Mobile menu - open button */}
           <div className="flex lg:hidden">
             <button
               type="button"
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               onClick={() => setMobileMenuOpen(true)}
             >
-              <span className="sr-only">Відкрити головне меню</span>
+              <span className="sr-only">Open main menu</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
@@ -92,12 +92,13 @@ function LandingPage() {
             >
               Маркетплейс
             </a>
-            <a
-              href="#"
+            {/* The link for "Team" is updated to point to the "founders" section */}
+            <Link
+              to="/about-us"
               className="text-lg font-medium text-gray-700 hover:text-indigo-600 px-4 py-2 rounded-lg transition duration-300 ease-in-out hover:bg-gray-50"
             >
               Команда
-            </a>
+            </Link>
             <Link
               to="/login"
               className="text-lg font-medium text-gray-700 hover:text-indigo-600 px-4 py-2 rounded-lg transition duration-300 ease-in-out hover:bg-gray-50"
@@ -113,6 +114,7 @@ function LandingPage() {
           </nav>
         </div>
       </header>
+
 
       {/* Мобільне меню (кастомна реалізація замість Headless UI Dialog) */}
       <div
@@ -174,14 +176,14 @@ function LandingPage() {
                   Функції
                 </a>
                 <a
-                  href="#"
+                  href="#Footer"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Маркетплейс
                 </a>
                 <a
-                  href="#"
+                  href="#founders"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   onClick={() => setMobileMenuOpen(false)}
                 >
