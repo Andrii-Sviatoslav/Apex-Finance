@@ -214,7 +214,7 @@ function Budgets({ db, auth, userId, userData }) {
                 <div>
                     <div className="flex items-center mb-10">
                         <img src={logoUrl} alt="Finance Manager Logo" className="w-8 h-8 mr-2 object-contain" />
-                        <span className="text-xl font-bold text-gray-900">Finance Manager</span>
+                        <span className="text-xl font-bold text-gray-900">APEX Finance</span>
                     </div>
                     <nav className="space-y-4">
                         <Link to="/dashboard" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
@@ -235,6 +235,10 @@ function Budgets({ db, auth, userId, userData }) {
                         {/* <Link to="/categories" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
                             <Squares2X2Icon className="h-5 w-5 mr-3" /> Categories
                         </Link> */}
+                        {/* Profile Settings link is now always visible */}
+                                                <Link to="/profile-settings" className="flex items-center text-gray-700 hover:text-blue-700 hover:bg-blue-50 px-4 py-2.5 rounded-xl transition-colors duration-200">
+                                                    <UserCircleIcon className="h-5 w-5 mr-3" /> Налаштування профілю
+                                                </Link>
                     </nav>
                 </div>
             </aside>
