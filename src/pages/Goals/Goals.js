@@ -215,37 +215,38 @@ function Goals({ db, auth, userId, userData }) {
     return (
         <div className="flex min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 font-['DM Sans']">
             {/* Бічна панель (скопійована з Dashboard для послідовності) */}
-            <aside className="w-64 bg-white p-6 shadow-xl flex flex-col justify-between rounded-r-3xl border-r border-gray-100">
-                <div>
-                    <div className="flex items-center mb-10 px-2">
-                        <img src={logoUrl} alt="APEX FINANCE Logo" className="w-10 h-10 mr-3 object-contain rounded-full shadow-sm" />
-                        <span className="text-2xl font-extrabold text-gray-900">APEX FINANCE</span>
-                    </div>
-                    <nav className="space-y-3">
-                        <Link to="/dashboard" className="flex items-center text-gray-700 hover:text-blue-700 hover:bg-blue-50 px-4 py-2.5 rounded-xl transition-colors duration-200">
-                            <HomeIcon className="h-5 w-5 mr-3" /> Інформаційна панель
-                        </Link>
-                        <Link to="/budgets" className="flex items-center text-gray-700 hover:text-blue-700 hover:bg-blue-50 px-4 py-2.5 rounded-xl transition-colors duration-200">
-                            <BanknotesIcon className="h-5 w-5 mr-3" /> Бюджети
-                        </Link>
-                        <Link to="/goals" className="flex items-center text-blue-700 bg-blue-50 px-4 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-sm hover:shadow-md">
-                            <ListBulletIcon className="h-5 w-5 mr-3" /> Наші цілі
-                        </Link>
-                        <Link to="/accounts" className="flex items-center text-gray-700 hover:text-blue-700 hover:bg-blue-50 px-4 py-2.5 rounded-xl transition-colors duration-200">
-                            <CreditCardIcon className="h-5 w-5 mr-3" /> Рахунки
-                        </Link>
-                        <Link to="/transactions" className="flex items-center text-gray-700 hover:text-blue-700 hover:bg-blue-50 px-4 py-2.5 rounded-xl transition-colors duration-200">
-                            <ClipboardDocumentListIcon className="h-5 w-5 mr-3" /> Транзакції
-                        </Link>
-                        {/* <Link to="/categories" className="flex items-center text-gray-700 hover:text-blue-700 hover:bg-blue-50 px-4 py-2.5 rounded-xl transition-colors duration-200">
-                            <Squares2X2Icon className="h-5 w-5 mr-3" /> Categories
-                        </Link> */}
-                        <Link to="/admin" className="flex items-center text-gray-700 hover:text-blue-700 hover:bg-blue-50 px-4 py-2.5 rounded-xl transition-colors duration-200">
-                            <UsersIcon className="h-5 w-5 mr-3" /> Admin Panel
-                        </Link>
-                    </nav>
-                </div>
-            </aside>
+            <aside className="w-64 bg-white p-6 shadow-xl flex flex-col justify-between rounded-r-xl">
+                                       <div>
+                                           <div className="flex items-center mb-10">
+                                               <img src={logoUrl} alt="Finance Manager Logo" className="w-8 h-8 mr-2 object-contain" />
+                                               <span className="text-xl font-bold text-gray-900">Finance Manager</span>
+                                           </div>
+                                           <nav className="space-y-4">
+                                               <Link to="/dashboard" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                                   <HomeIcon className="h-5 w-5 mr-3" /> Інформаційна панель
+                                               </Link>
+                                               <Link to="/budgets" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                                   <BanknotesIcon className="h-5 w-5 mr-3" /> Бюджети
+                                               </Link>
+                                               <Link to="/goals" className="flex items-center text-blue-600 bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                                   <ListBulletIcon className="h-5 w-5 mr-3" /> Наші цілі
+                                               </Link>
+                                               <Link to="/accounts" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                                   <CreditCardIcon className="h-5 w-5 mr-3" /> Рахунки
+                                               </Link>
+                                               <Link to="/transactions" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                                   <ClipboardDocumentListIcon className="h-5 w-5 mr-3" /> Транзакції
+                                               </Link>
+                                               <Link to="/admin" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                                   <UsersIcon className="h-5 w-5 mr-3" /> Admin Panel
+                                               </Link>
+                                               <Link to="/profile-settings" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                                   <UserCircleIcon className="h-5 w-5 mr-3" /> Налаштування профілю
+                                               </Link>
+                                           </nav>
+                                       </div>
+                                   </aside>
+            
 
             {/* Основний контент сторінки Цілей */}
             <div className="flex-1 p-8 max-w-[1400px] mx-auto">

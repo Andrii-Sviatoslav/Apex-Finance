@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {
     HomeIcon, ClipboardDocumentListIcon, BanknotesIcon, CreditCardIcon, ListBulletIcon,
     UserCircleIcon, PlusIcon, PencilIcon, TrashIcon, ExclamationTriangleIcon,
-    ChevronDownIcon, MagnifyingGlassIcon, XMarkIcon
+    ChevronDownIcon, MagnifyingGlassIcon, XMarkIcon, UsersIcon
 } from "@heroicons/react/24/outline";
 import { collection, onSnapshot, addDoc, doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { signOut } from 'firebase/auth';
@@ -311,31 +311,38 @@ function Transactions({ db, auth, userId, userData }) {
     return (
         <div className="flex min-h-screen bg-[#F7FAFC] font-['DM Sans']">
             {/* Sidebar */}
-            <aside className="w-64 bg-white p-6 shadow-xl flex flex-col justify-between rounded-r-xl">
-                <div>
-                    <div className="flex items-center mb-10">
-                        <img src={logoUrl} alt="Finance Manager Logo" className="w-8 h-8 mr-2 object-contain" />
-                        <span className="text-xl font-bold text-gray-900">Finance Manager</span>
-                    </div>
-                    <nav className="space-y-4">
-                        <Link to="/dashboard" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
-                            <HomeIcon className="h-5 w-5 mr-3" /> Інформаційна панель
-                        </Link>
-                        <Link to="/budgets" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
-                            <BanknotesIcon className="h-5 w-5 mr-3" /> Бюджети
-                        </Link>
-                        <Link to="/goals" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
-                            <ListBulletIcon className="h-5 w-5 mr-3" /> Наші цілі
-                        </Link>
-                        <Link to="/accounts" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
-                            <CreditCardIcon className="h-5 w-5 mr-3" />  Рахунки  
-                        </Link>
-                        <Link to="/transactions" className="flex items-center text-blue-600 bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
-                            <ClipboardDocumentListIcon className="h-5 w-5 mr-3" /> Транзакції
-                        </Link>
-                    </nav>
-                </div>
-            </aside>
+           <aside className="w-64 bg-white p-6 shadow-xl flex flex-col justify-between rounded-r-xl">
+                           <div>
+                               <div className="flex items-center mb-10">
+                                   <img src={logoUrl} alt="Finance Manager Logo" className="w-8 h-8 mr-2 object-contain" />
+                                   <span className="text-xl font-bold text-gray-900">Finance Manager</span>
+                               </div>
+                               <nav className="space-y-4">
+                                   <Link to="/dashboard" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                       <HomeIcon className="h-5 w-5 mr-3" /> Інформаційна панель
+                                   </Link>
+                                   <Link to="/budgets" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                       <BanknotesIcon className="h-5 w-5 mr-3" /> Бюджети
+                                   </Link>
+                                   <Link to="/goals" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                       <ListBulletIcon className="h-5 w-5 mr-3" /> Наші цілі
+                                   </Link>
+                                   <Link to="/accounts" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                       <CreditCardIcon className="h-5 w-5 mr-3" /> Рахунки
+                                   </Link>
+                                   <Link to="/transactions" className="flex items-center text-blue-600 bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                       <ClipboardDocumentListIcon className="h-5 w-5 mr-3" /> Транзакції
+                                   </Link>
+                                   <Link to="/admin" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                       <UsersIcon className="h-5 w-5 mr-3" /> Admin Panel
+                                   </Link>
+                                   <Link to="/profile-settings" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
+                                       <UserCircleIcon className="h-5 w-5 mr-3" /> Налаштування профілю
+                                   </Link>
+                               </nav>
+                           </div>
+                       </aside>
+
 
             {/* Main content area */}
             <div className="flex-1 flex flex-col p-6 max-w-[1184px] mx-auto">

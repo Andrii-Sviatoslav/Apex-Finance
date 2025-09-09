@@ -210,10 +210,6 @@ function Accounts({ db, auth, userId, userData }) {
                         <Link to="/transactions" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
                             <ClipboardDocumentListIcon className="h-5 w-5 mr-3" /> Транзакції
                         </Link>
-                        {/* Видалено посилання на Categories */}
-                        {/* <Link to="/categories" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
-                            <Squares2X2Icon className="h-5 w-5 mr-3" /> Categories
-                        </Link> */}
                         <Link to="/admin" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
                             <UsersIcon className="h-5 w-5 mr-3" /> Admin Panel
                         </Link>
