@@ -1,4 +1,32 @@
 import React, { useState, useEffect } from "react";
+import piggy1 from "../../images/piggy1.png";
+import piggy2 from "../../images/piggy2.png";
+import piggy3 from "../../images/piggy3.png";
+import piggy4 from "../../images/piggy4.png";
+import piggy5 from "../../images/piggy5.png";
+import piggy6 from "../../images/piggy6.png";
+import piggy7 from "../../images/piggy7.png";
+import piggy8 from "../../images/piggy8.png";
+import piggy9 from "../../images/piggy9.png";
+import piggies_main from "../../images/piggies_main.png";
+import piggie_budgeter from "../../images/piggy_budgeter.png";
+import piggie_enterprenuer from "../../images/piggy_entrepreneur.png";
+import piggie_investor from "../../images/piggy_investor.png";
+import piggie_freak from "../../images/piggy_freak.png";
+import piggie_learner from "../../images/piggy_learner.png";
+import piggie_nomad from "../../images/piggy_nomad.png";
+import piggie_stable from "../../images/piggy_stable.png";
+import piggie_wealthy from "../../images/piggy_wealthy.png";
+import phoneFuture1 from "../../images/phone_future_1.png";
+import phoneFuture2 from "../../images/phone_future_2.png";
+import phoneFuture3 from "../../images/phone_future_3.png";
+import phoneFuture4 from "../../images/phone_future_4.png";
+import finalBenefit1 from "../../images/final_benefit_1.png";
+import finalBenefit2 from "../../images/final_benefit_2.png";
+import teamMember1 from "../../images/team_member_1.jpg";
+import teamMember2 from "../../images/team_member_2.jpg";
+import teamMember3 from "../../images/team_member_3.jpg";
+import teamMember4 from "../../images/team_member_1.jpg"; // change with real img
 
 const NFTProjectPage = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -114,15 +142,15 @@ const NFTProjectPage = () => {
           </div>
           <div className="md:w-1/2 grid grid-cols-3 gap-4 p-4 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl shadow-xl">
             {[
-              "https://placehold.co/100x100/A7F3D0/065F46?text=NFT",
-              "https://placehold.co/100x100/FEE2E2/991B1B?text=NFT",
-              "https://placehold.co/100x100/DBEAFE/1E40AF?text=NFT",
-              "https://placehold.co/100x100/D1FAE5/065F46?text=NFT",
-              "https://placehold.co/100x100/FCE7F3/BE185D?text=NFT",
-              "https://placehold.co/100x100/E0E7FF/4338CA?text=NFT",
-              "https://placehold.co/100x100/FFF7ED/D97706?text=NFT",
-              "https://placehold.co/100x100/F3E8FF/7C3AED?text=NFT",
-              "https://placehold.co/100x100/DCFCE7/15803D?text=NFT",
+              piggy1,
+              piggy2,
+              piggy3,
+              piggy4,
+              piggy5,
+              piggy6,
+              piggy7,
+              piggy8,
+              piggy9,
             ].map((src, index) => (
               <img
                 key={index}
@@ -174,7 +202,7 @@ const NFTProjectPage = () => {
           <div className="md:w-1/2 flex justify-center">
             {/* */}
             <img
-              src="https://placehold.co/600x400/D1FAE5/065F46?text=ApexGuardian"
+              src={piggies_main}
               alt="ApexGuardian"
               className="rounded-xl shadow-lg max-w-full h-auto"
             />
@@ -189,38 +217,17 @@ const NFTProjectPage = () => {
             У нашого ApexGuardian 8 особистостей, яка ваша?
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6">
+            <ApexGuardianPersonality image={piggie_budgeter} name="Художник" />
+            <ApexGuardianPersonality image={piggie_stable} name="Мрійник" />
             <ApexGuardianPersonality
-              image="https://placehold.co/100x100/F0F9FF/0C4A6E?text=NFT"
-              name="Художник"
-            />
-            <ApexGuardianPersonality
-              image="https://placehold.co/100x100/FEF2F2/7F1D1D?text=NFT"
-              name="Мрійник"
-            />
-            <ApexGuardianPersonality
-              image="https://placehold.co/100x100/F0FDF4/166534?text=NFT"
+              image={piggie_enterprenuer}
               name="Науковець"
             />
-            <ApexGuardianPersonality
-              image="https://placehold.co/100x100/ECFDF5/047857?text=NFT"
-              name="Контролер"
-            />
-            <ApexGuardianPersonality
-              image="https://placehold.co/100x100/FFF7ED/9A3412?text=NFT"
-              name="Дослідник"
-            />
-            <ApexGuardianPersonality
-              image="https://placehold.co/100x100/F5F3FF/5B21B6?text=NFT"
-              name="Майстер"
-            />
-            <ApexGuardianPersonality
-              image="https://placehold.co/100x100/F0F9FF/0C4A6E?text=NFT"
-              name="Мандрівник"
-            />
-            <ApexGuardianPersonality
-              image="https://placehold.co/100x100/FEF2F2/7F1D1D?text=NFT"
-              name="Новатор"
-            />
+            <ApexGuardianPersonality image={piggie_wealthy} name="Контролер" />
+            <ApexGuardianPersonality image={piggie_investor} name="Дослідник" />
+            <ApexGuardianPersonality image={piggie_freak} name="Майстер" />
+            <ApexGuardianPersonality image={piggie_learner} name="Мандрівник" />
+            <ApexGuardianPersonality image={piggie_nomad} name="Новатор" />
           </div>
         </div>
       </section>
@@ -245,7 +252,7 @@ const NFTProjectPage = () => {
               <p className="text-sm text-gray-500">✔️ 03/2022</p>
               {/* */}
               <img
-                src="https://placehold.co/400x250/C7D2FE/3730A3?text=Unlock+ApexGuardian"
+                src={finalBenefit1}
                 alt="Unlock ApexGuardian"
                 className="mt-6 rounded-lg shadow-md"
               />
@@ -263,7 +270,7 @@ const NFTProjectPage = () => {
               <p className="text-sm text-gray-500">✔️ Після 100% мінту</p>
               {/* */}
               <img
-                src="https://placehold.co/400x250/D1FAE5/065F46?text=Exclusive+Access"
+                src={finalBenefit2}
                 alt="Exclusive Access"
                 className="mt-6 rounded-lg shadow-md"
               />
@@ -298,7 +305,7 @@ const NFTProjectPage = () => {
                 <div className="md:w-1/2 order-1 md:order-2 flex justify-center p-4">
                   {/* */}
                   <img
-                    src="https://placehold.co/200x400/E0F2FE/0B5D9F?text=App+Screen+1"
+                    src={phoneFuture1}
                     alt="App Screen 1"
                     className="rounded-xl shadow-lg"
                   />
@@ -313,7 +320,7 @@ const NFTProjectPage = () => {
                 <div className="md:w-1/2 p-4">
                   {/* */}
                   <img
-                    src="https://placehold.co/200x400/E0F2FE/0B5D9F?text=App+Screen+2"
+                    src={phoneFuture2}
                     alt="App Screen 2"
                     className="rounded-xl shadow-lg"
                   />
@@ -343,7 +350,7 @@ const NFTProjectPage = () => {
                 <div className="md:w-1/2 order-1 md:order-2 flex justify-center p-4">
                   {/* */}
                   <img
-                    src="https://placehold.co/200x400/E0F2FE/0B5D9F?text=App+Screen+3"
+                    src={phoneFuture3}
                     alt="App Screen 3"
                     className="rounded-xl shadow-lg"
                   />
@@ -358,7 +365,7 @@ const NFTProjectPage = () => {
                 <div className="md:w-1/2 p-4">
                   {/* */}
                   <img
-                    src="https://placehold.co/200x400/E0F2FE/0B5D9F?text=App+Screen+4"
+                    src={phoneFuture4}
                     alt="App Screen 4"
                     className="rounded-xl shadow-lg"
                   />
@@ -385,7 +392,7 @@ const NFTProjectPage = () => {
           <div className="md:w-1/2 flex justify-center">
             {/* */}
             <img
-              src="https://placehold.co/400x250/C7D2FE/3730A3?text=Easy+Crypto"
+              src={piggies_main}
               alt="Easy Crypto"
               className="rounded-xl shadow-lg max-w-full h-auto"
             />
@@ -418,26 +425,22 @@ const NFTProjectPage = () => {
             <TeamMember
               name="Назарій"
               role="CEO & Засновник"
-              avatar="https://placehold.co/100x100/F0F9FF/0C4A6E?text=D"
+              avatar={teamMember1}
               linkedinUrl="https://ua.linkedin.com/in/nazarii-horbachuk-6a5703323"
             />
             <TeamMember
               name="Андрій"
               role="CTO & Співзасновник"
-              avatar="https://placehold.co/100x100/FEF2F2/7F1D1D?text=J"
+              avatar={teamMember3}
               linkedinUrl="https://www.linkedin.com/in/andrii-shcherba-286a22366/"
             />
             <TeamMember
               name="Святослав"
               role="Дизайнер"
-              avatar="https://placehold.co/100x100/F0FDF4/166534?text=P"
+              avatar={teamMember2}
               linkedinUrl="https://ua.linkedin.com/in/pavla-profile"
             />
-            <TeamMember
-              name="Тетяна"
-              role="Маркетолог"
-              avatar="https://placehold.co/100x100/ECFDF5/047857?text=L"
-            />{" "}
+            <TeamMember name="Тетяна" role="Маркетолог" avatar={teamMember4} />{" "}
             {/* Без конкретного URL, буде використовувати '#' */}
           </div>
           <p className="text-gray-500 mt-8">та 8 інших членів команди</p>
