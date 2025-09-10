@@ -75,7 +75,7 @@ function LandingPage() {
               Проект NFT
             </Link>
             <a
-              href="#features"
+              href="/"
               className="text-lg font-medium text-gray-700 hover:text-indigo-600 px-4 py-2 rounded-lg transition duration-300 ease-in-out hover:bg-gray-50"
             >
               Продукт
@@ -87,7 +87,7 @@ function LandingPage() {
               Функції
             </a>
             <a
-              href="#"
+              href="#Footer"
               className="text-lg font-medium text-gray-700 hover:text-indigo-600 px-4 py-2 rounded-lg transition duration-300 ease-in-out hover:bg-gray-50"
             >
               Маркетплейс
@@ -114,7 +114,6 @@ function LandingPage() {
           </nav>
         </div>
       </header>
-
 
       {/* Мобільне меню (кастомна реалізація замість Headless UI Dialog) */}
       <div
@@ -572,7 +571,10 @@ function LandingPage() {
       </section>
 
       {/* Футер */}
-      <footer className="bg-gray-900 text-gray-300 py-12 rounded-b-3xl shadow-xl">
+      <footer
+        id="Footer"
+        className="bg-gray-900 text-gray-300 py-12 rounded-b-3xl shadow-xl"
+      >
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
             <h4 className="font-bold text-gray-100 text-xl mb-5">
