@@ -1,18 +1,46 @@
-rules_version='2'
+rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin(appId) {
+      return isSignedIn() &&
+        exists(/databases/$(database)/documents/artifacts/$(appId)/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/artifacts/$(appId)/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // Root users collection: stores user meta like role, email
+    match /artifacts/{appId}/users/{uid} {
+      allow read: if isSignedIn() && (request.auth.uid == uid || isAdmin(appId));
+      // Only admins can write to root user docs (e.g., change role)
+      allow create, update, delete: if isAdmin(appId);
+    }
+
+    // User profile document under users/{uid}/profile/details
+    match /artifacts/{appId}/users/{uid}/profile/{docId} {
+      allow read: if isSignedIn() && (request.auth.uid == uid || isAdmin(appId));
+      allow create, update: if isSignedIn() && (request.auth.uid == uid || isAdmin(appId));
+      allow delete: if isAdmin(appId);
+    }
+
+    // User-owned subcollections: transactions, budgets, goals, accounts
+    match /artifacts/{appId}/users/{uid}/{subCol}/{docId} {
+      allow read, write: if isSignedIn() && (request.auth.uid == uid || isAdmin(appId));
+    }
+
+    // Public user profiles used by ProfileSettings page
+    match /artifacts/{appId}/public/data/user_profiles/{uid} {
+      allow read: if isSignedIn() && (request.auth.uid == uid || isAdmin(appId));
+      allow create, update: if isSignedIn() && (request.auth.uid == uid || isAdmin(appId));
+      allow delete: if isAdmin(appId);
+    }
+
+    // Deny everything else by default
     match /{document=**} {
-      // This rule allows anyone with your database reference to view, edit,
-      // and delete all data in your database. It is useful for getting
-      // started, but it is configured to expire after 30 days because it
-      // leaves your app open to attackers. At that time, all client
-      // requests to your database will be denied.
-      //
-      // Make sure to write security rules for your app before that time, or
-      // else all client requests to your database will be denied until you
-      // update your rules.
-      allow read, write: if request.time < timestamp.date(2025, 9, 12);
+      allow read, write: if false;
     }
   }
 }

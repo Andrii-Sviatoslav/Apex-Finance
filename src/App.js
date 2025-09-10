@@ -15,7 +15,13 @@ import {
   signInWithCustomToken,
   signInAnonymously,
 } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  setLogLevel,
+} from "firebase/firestore";
 
 // Імпорт
 import Dashboard from "./pages/Dashboard/Dashboard.js";
@@ -29,7 +35,6 @@ import AdminPanel from "./pages/AdminPanel/AdminPanel.js";
 import ProfileSettings from "./pages/ProfileSettings/ProfileSettings.js";
 import LandingPage from "./pages/LandingPage/LandingPage.js";
 import NFTProjectPage from "./pages/NFTProjectPage/NFTProjectPage.js";
-import BudgetManager from "./pages/BudgetManager/BudgetManager.js";
 // Імпорт
 import AboutUs from "./pages/AboutUs/AboutUs.js";
 import Blog from "./pages/Blog/Blog.js";
@@ -66,6 +71,7 @@ function ProtectedRoute({
   userId,
   userData,
   setGlobalUserData,
+  requiredRole,
 }) {
   const navigate = useNavigate();
   const currentLocation = window.location.pathname;
@@ -82,7 +88,23 @@ function ProtectedRoute({
     ) {
       navigate("/dashboard"); // Перенаправляємо на /dashboard
     }
-  }, [isAuthenticated, navigate, currentLocation, Component]); // Додано Component до залежностей useEffect
+    // Якщо роль вимагається і користувач не має відповідної ролі, перенаправляємо
+    else if (
+      isAuthenticated === true &&
+      requiredRole &&
+      userData &&
+      userData.role !== requiredRole
+    ) {
+      navigate("/dashboard");
+    }
+  }, [
+    isAuthenticated,
+    navigate,
+    currentLocation,
+    Component,
+    requiredRole,
+    userData,
+  ]); // Додано залежності
 
   if (isAuthenticated === null) {
     return (
@@ -152,6 +174,9 @@ function App() {
   };
 
   useEffect(() => {
+    try {
+      setLogLevel && setLogLevel("error");
+    } catch (_) {}
     const firebaseConfig =
       typeof window.__firebase_config !== "undefined"
         ? JSON.parse(window.__firebase_config)
@@ -216,6 +241,37 @@ function App() {
             typeof window.__app_id !== "undefined"
               ? window.__app_id
               : "default-app-id";
+          const rootUserDocRef = doc(
+            dbInstance,
+            `/artifacts/${appId}/users`,
+            user.uid
+          );
+          const nowIso = new Date().toISOString();
+          const INITIAL_ADMIN_USER_IDS = ["CawE33GEkZhLFsapAdBr3saDV3F3"]; // seed admin(s)
+          const existingRootSnap = await getDoc(rootUserDocRef);
+          if (!existingRootSnap.exists()) {
+            await setDoc(
+              rootUserDocRef,
+              {
+                email: user.email || "",
+                role: INITIAL_ADMIN_USER_IDS.includes(user.uid)
+                  ? "admin"
+                  : "user",
+                createdAt: nowIso,
+                updatedAt: nowIso,
+              },
+              { merge: true }
+            );
+          } else if (INITIAL_ADMIN_USER_IDS.includes(user.uid)) {
+            const data = existingRootSnap.data() || {};
+            if (data.role !== "admin") {
+              await setDoc(
+                rootUserDocRef,
+                { role: "admin", updatedAt: nowIso },
+                { merge: true }
+              );
+            }
+          }
           const userProfileRef = doc(
             dbInstance,
             `/artifacts/${appId}/users/${user.uid}/profile`,
@@ -223,7 +279,11 @@ function App() {
           );
           const userProfileSnap = await getDoc(userProfileRef);
           if (userProfileSnap.exists()) {
-            setUserData({ id: user.uid, ...userProfileSnap.data() });
+            const refreshedRootSnap = await getDoc(rootUserDocRef);
+            const role = refreshedRootSnap.exists()
+              ? refreshedRootSnap.data().role || "user"
+              : "user";
+            setUserData({ id: user.uid, role, ...userProfileSnap.data() });
           } else {
             const initialProfileData = {
               email: user.email || "",
@@ -238,7 +298,11 @@ function App() {
               updatedAt: new Date().toISOString(),
             };
             await setDoc(userProfileRef, initialProfileData);
-            setUserData(initialProfileData);
+            const refreshedRootSnap = await getDoc(rootUserDocRef);
+            const role = refreshedRootSnap.exists()
+              ? refreshedRootSnap.data().role || "user"
+              : "user";
+            setUserData({ id: user.uid, role, ...initialProfileData });
           }
         } else {
           setIsAuthenticated(false);
@@ -367,6 +431,7 @@ function App() {
                 userId={userId}
                 userData={userData}
                 setGlobalUserData={setGlobalUserData}
+                requiredRole={"admin"}
                 component={AdminPanel}
               />
             }
