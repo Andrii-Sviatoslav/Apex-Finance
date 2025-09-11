@@ -21,10 +21,18 @@ function AboutUs({ userId, userData }) {
             {/* Бічна панель */}
             <aside className="w-64 bg-white p-6 shadow-xl flex flex-col justify-between rounded-r-3xl border-r border-gray-100">
                 <div>
-                    <div className="flex items-center mb-10 px-2">
-                        <img src={logoUrl} alt="APEX FINANCE Logo" className="w-10 h-10 mr-3 object-contain rounded-full shadow-sm" />
-                        <span className="text-2xl font-extrabold text-gray-900">APEX FINANCE</span>
-                    </div>
+                   <div className="flex items-center mb-10">
+      <Link to="/" className="flex items-center">
+        <img
+          src={logoUrl}
+          alt="Finance Manager Logo"
+          className="w-8 h-8 mr-2 object-contain"
+        />
+        <span className="text-xl font-bold text-gray-900">
+          Finance Manager
+        </span>
+      </Link>
+    </div>
                     <nav className="space-y-3">
                         <Link to="/dashboard" className="flex items-center text-gray-700 hover:text-blue-700 hover:bg-blue-50 px-4 py-2.5 rounded-xl transition-colors duration-200">
                             <HomeIcon className="h-5 w-5 mr-3" /> Dashboard
@@ -89,7 +97,7 @@ function AboutUs({ userId, userData }) {
                         <BellIcon className="h-7 w-7 text-gray-500 cursor-pointer hover:text-blue-600 transition-colors duration-200" />
                         <div className="flex items-center space-x-3">
                             {profileImageUrl ? (
-                                <img src={profileImageUrl} alt="Profile" className="h-10 w-10 rounded-full object-cover border-2 border-blue-500" onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/40x40/aabbcc/ffffff?text=NP'; }} />
+                                <img src={profileImageUrl} alt="Profile" className="h-10 w-10 rounded-full object-cover border-2 border-blue-500" onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/40x40/aabbcc/ffffff?text=US'; }} />
                             ) : (
                                 <UserCircleIcon className="h-10 w-10 text-blue-500 rounded-full bg-blue-100 p-1" />
                             )}

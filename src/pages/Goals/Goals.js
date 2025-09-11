@@ -218,9 +218,17 @@ function Goals({ db, auth, userId, userData }) {
             <aside className="w-64 bg-white p-6 shadow-xl flex flex-col justify-between rounded-r-xl">
                                        <div>
                                            <div className="flex items-center mb-10">
-                                               <img src={logoUrl} alt="Finance Manager Logo" className="w-8 h-8 mr-2 object-contain" />
-                                               <span className="text-xl font-bold text-gray-900">Finance Manager</span>
-                                           </div>
+      <Link to="/" className="flex items-center">
+        <img
+          src={logoUrl}
+          alt="Finance Manager Logo"
+          className="w-8 h-8 mr-2 object-contain"
+        />
+        <span className="text-xl font-bold text-gray-900">
+          Finance Manager
+        </span>
+      </Link>
+    </div>
                                            <nav className="space-y-4">
                                                <Link to="/dashboard" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
                                                    <HomeIcon className="h-5 w-5 mr-3" /> Інформаційна панель

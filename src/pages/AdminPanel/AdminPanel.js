@@ -360,15 +360,17 @@ function AdminPanel({ db, auth, userId, userData }) {
       <aside className="w-64 bg-white p-6 shadow-xl flex flex-col justify-between rounded-r-xl">
         <div>
           <div className="flex items-center mb-10">
-            <img
-              src={logoUrl}
-              alt="Finance Manager Logo"
-              className="w-8 h-8 mr-2 object-contain"
-            />
-            <span className="text-xl font-bold text-gray-900">
-              Finance Manager
-            </span>
-          </div>
+      <Link to="/" className="flex items-center">
+        <img
+          src={logoUrl}
+          alt="Finance Manager Logo"
+          className="w-8 h-8 mr-2 object-contain"
+        />
+        <span className="text-xl font-bold text-gray-900">
+          Finance Manager
+        </span>
+      </Link>
+    </div>
           <nav className="space-y-4">
             <Link
               to="/dashboard"

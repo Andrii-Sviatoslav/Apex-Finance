@@ -173,16 +173,18 @@ function ProfileSettings({ db, auth, userId, userData, setGlobalUserData }) {
             {/* Бічна панель */}
             <aside className="w-full md:w-64 bg-white p-6 shadow-xl flex flex-col justify-between rounded-b-xl md:rounded-r-xl md:rounded-b-none z-10">
                 <div>
-                    <div className="flex items-center mb-10 pb-4 border-b border-gray-200">
-                        {/* Image with fallback placeholder */}
-                        <img 
-                            src={logoUrl} 
-                            alt="Finance Manager Logo" 
-                            className="w-10 h-10 mr-3 object-contain rounded-full border border-gray-200 p-1" 
-                            onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/40x40/cbd5e1/4a5568?text=FM"; }} 
-                        />
-                        <span className="text-2xl font-extrabold text-gray-900">Finance Manager</span>
-                    </div>
+                    <div className="flex items-center mb-10">
+      <Link to="/" className="flex items-center">
+        <img
+          src={logoUrl}
+          alt="Finance Manager Logo"
+          className="w-8 h-8 mr-2 object-contain"
+        />
+        <span className="text-xl font-bold text-gray-900">
+          Finance Manager
+        </span>
+      </Link>
+    </div>
                     <nav className="space-y-3">
                         {/* Navigation Links */}
                         <Link to="/dashboard" className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition-colors duration-200">
