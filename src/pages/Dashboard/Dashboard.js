@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Line, Pie, Bar } from "react-chartjs-2";
+import { Line, Pie, } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -31,8 +31,6 @@ import {
   ExclamationTriangleIcon,
   PlusIcon,
   CurrencyDollarIcon,
-  UserGroupIcon,
-  BriefcaseIcon,
 } from "@heroicons/react/24/outline";
 
 // Імпорт функцій Firestore
@@ -740,17 +738,7 @@ function Dashboard({ db, auth, userId, userData }) {
     userData?.profileImageUrl ||
     "https://placehold.co/40x40/aabbcc/ffffff?text=NP"; // Використовуйте заглушку, якщо немає зображення
 
-  // Фіктивні дані для сімейних акаунтів та доходів
-  const familyAccounts = userData?.familyAccounts || [
-    { name: "Дружина", balance: 1500.0 },
-    { name: "Дитина 1", balance: 250.0 },
-  ];
-
-  const incomeSources = userData?.incomeSources || [
-    { name: "Зарплата", amount: 3000.0, frequency: "Щомісячно" },
-    { name: "Фріланс", amount: 500.0, frequency: "Нерегулярно" },
-  ];
-
+  
   if (loading)
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#F7FAFC] font-['DM Sans']">
