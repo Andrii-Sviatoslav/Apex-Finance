@@ -61,7 +61,6 @@ ChartJS.register(
 // URL для логотипу
 const logoUrl = "/image.png";
 
-const ADMIN_USER_ID = "CawE33GEkZhLFsapAdBr3saDV3F3";
 
 // Функція для отримання назви місяця українською
 const getMonthName = (monthIndex) => {

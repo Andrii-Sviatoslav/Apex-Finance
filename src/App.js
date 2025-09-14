@@ -43,7 +43,6 @@ import ContactUs from "./pages/ContactUs/ContactUs.js";
 import CookiePolicy from "./pages/CookiePolicy/CookiePolicy.js";
 import Forum from "./pages/Forum/Forum.js";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy.js";
-import Settings from "./pages/Settings/Settings.js";
 import TermsOfUse from "./pages/TermsOfUse/TermsOfUse.js";
 
 // Список публічних маршрутів, які не потребують автентифікації
@@ -461,20 +460,6 @@ function App() {
                 userData={userData}
                 setGlobalUserData={setGlobalUserData}
                 component={Forum}
-              />
-            }
-          />
-          <Route
-            path="/settings"
-            element={
-              <ProtectedRoute
-                isAuthenticated={isAuthenticated}
-                db={db}
-                auth={auth}
-                userId={userId}
-                userData={userData}
-                setGlobalUserData={setGlobalUserData}
-                component={Settings}
               />
             }
           />
