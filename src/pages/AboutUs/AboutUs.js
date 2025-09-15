@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const logoUrl = "/image.png"; // Посилання на логотип
 
-function AboutUs({userData }) {
+function AboutUs({ userData }) {
     // Визначення імені для відображення
     const displayName = (userData && userData.firstName && userData.lastName)
         ? `${userData.firstName} ${userData.lastName}`
@@ -110,9 +110,9 @@ function AboutUs({userData }) {
                         Андрій Щерба — серце і розум наших фінансових операцій.
                         Його педантичність, глибоке розуміння ринку та аналітичні здібності гарантують стабільність і фінансове здоров'я компанії. Він керує стратегією росту, забезпечуючи, що APEX FINANCE розвивається згідно з усіма стандартами та вимогами.
                         Андрій створює фінансову прозорість не лише для нас, а й для наших клієнтів, допомагаючи їм впевнено керувати своїми фінансами</p>
-                </div>             </div>
+                </div>
+            </div>
         </div>
-
     );
 }
 

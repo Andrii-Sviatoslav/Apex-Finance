@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {BriefcaseIcon} from '@heroicons/react/24/outline'; // Імпортуємо іконки
+import { BriefcaseIcon } from '@heroicons/react/24/outline'; // Імпортуємо іконки
 
 const logoUrl = "/image.png";
 
-function Careers({userData }) {
+function Careers({ userData }) {
     // Визначення імені для відображення
     const displayName = (userData && userData.firstName && userData.lastName)
         ? `${userData.firstName} ${userData.lastName}`
@@ -16,8 +16,16 @@ function Careers({userData }) {
             <aside className="w-64 bg-white p-6 shadow-xl flex flex-col justify-between rounded-r-3xl border-r border-gray-100">
                 <div>
                     <div className="flex items-center mb-10 px-2">
-                        <img src={logoUrl} alt="APEX FINANCE Logo" className="w-10 h-10 mr-3 object-contain rounded-full shadow-sm" />
-                        <span className="text-2xl font-extrabold text-gray-900">APEX FINANCE</span>
+                        <Link to="/" className="flex items-center">
+                            <img
+                                src={logoUrl}
+                                alt="Finance Manager Logo"
+                                className="w-10 h-10 mr-3 object-contain rounded-full shadow-sm"
+                            />
+                            <span className="text-2xl font-extrabold text-gray-900">
+                                APEX FINANCE
+                            </span>
+                        </Link>
                     </div>
                     <nav className="space-y-3">
                         {/* Додаткові статичні посилання */}
