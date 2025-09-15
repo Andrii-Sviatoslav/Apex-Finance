@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const logoUrl = "/image.png"; // Посилання на логотип
 
-function AboutUs({ userId, userData }) {
+function AboutUs({userData }) {
     // Визначення імені для відображення
     const displayName = (userData && userData.firstName && userData.lastName)
         ? `${userData.firstName} ${userData.lastName}`

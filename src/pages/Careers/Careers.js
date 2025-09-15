@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-    HomeIcon, ClipboardDocumentListIcon, BellIcon, UserCircleIcon,
-    BanknotesIcon, CreditCardIcon, UsersIcon, ListBulletIcon, BriefcaseIcon
-} from '@heroicons/react/24/outline'; // Імпортуємо іконки
+import {BriefcaseIcon} from '@heroicons/react/24/outline'; // Імпортуємо іконки
 
 const logoUrl = "/image.png";
 
-function Careers({ userId, userData }) {
+function Careers({userData }) {
     // Визначення імені для відображення
     const displayName = (userData && userData.firstName && userData.lastName)
         ? `${userData.firstName} ${userData.lastName}`
