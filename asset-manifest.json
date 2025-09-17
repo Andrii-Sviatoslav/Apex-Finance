@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/Apex-Finance/static/css/main.8246ae40.css",
+    "main.js": "/Apex-Finance/static/js/main.ca5e599b.js",
+    "static/media/piggy1.png": "/Apex-Finance/static/media/piggy1.2ab7c484e88941b9e748.png",
+    "static/media/team_member_3.jpg": "/Apex-Finance/static/media/team_member_3.921fcbb832b019bdd879.jpg",
+    "static/media/piggy2.png": "/Apex-Finance/static/media/piggy2.14fa44a7b89435a9d148.png",
+    "static/media/final_benefit_1.png": "/Apex-Finance/static/media/final_benefit_1.fac0d36b856a1abeda44.png",
+    "static/media/piggies_main.png": "/Apex-Finance/static/media/piggies_main.ebf839d3cc886c506324.png",
+    "static/media/phone_future_4.png": "/Apex-Finance/static/media/phone_future_4.2f21a8781140a95024eb.png",
+    "static/media/phone_future_3.png": "/Apex-Finance/static/media/phone_future_3.cb2a93934284b2a93061.png",
+    "static/media/team_member_1.jpg": "/Apex-Finance/static/media/team_member_1.6262fa9a68cfbe38cb36.jpg",
+    "static/media/phone_future_1.png": "/Apex-Finance/static/media/phone_future_1.b2d564e754e328c81438.png",
+    "static/media/phone_future_2.png": "/Apex-Finance/static/media/phone_future_2.3d6677a14f323e6cbefc.png",
+    "static/media/piggy5.png": "/Apex-Finance/static/media/piggy5.475056a3a0a11583f475.png",
+    "static/media/final_benefit_2.png": "/Apex-Finance/static/media/final_benefit_2.d3e69f9f28aed1147c33.png",
+    "static/media/piggy3.png": "/Apex-Finance/static/media/piggy3.2c0a1670dfb6e342e4a8.png",
+    "static/media/piggy9.png": "/Apex-Finance/static/media/piggy9.d18b8183f489ee38773f.png",
+    "static/media/piggy7.png": "/Apex-Finance/static/media/piggy7.90ba4f4b852f9ca30de4.png",
+    "static/media/piggy8.png": "/Apex-Finance/static/media/piggy8.35df2e54f429c21ef33e.png",
+    "static/media/team_member_2.jpg": "/Apex-Finance/static/media/team_member_2.49c597ca9f06215afd19.jpg",
+    "static/media/piggy6.png": "/Apex-Finance/static/media/piggy6.c21bde44384edb800f5b.png",
+    "static/media/piggy4.png": "/Apex-Finance/static/media/piggy4.22bbc6caf8dfb2c773cc.png",
+    "static/media/piggy_investor.png": "/Apex-Finance/static/media/piggy_investor.e6f4a81fa476b59c571d.png",
+    "static/media/piggy_budgeter.png": "/Apex-Finance/static/media/piggy_budgeter.74280cb4ea896abd5698.png",
+    "static/media/piggy_freak.png": "/Apex-Finance/static/media/piggy_freak.c4221cfbce88a63a3650.png",
+    "static/media/piggy_stable.png": "/Apex-Finance/static/media/piggy_stable.b6659ddcca35984e2229.png",
+    "static/media/piggy_wealthy.png": "/Apex-Finance/static/media/piggy_wealthy.6f8e168a5f0e5104fc2e.png",
+    "static/media/piggy_entrepreneur.png": "/Apex-Finance/static/media/piggy_entrepreneur.6a9a3ccd09e113243c5f.png",
+    "static/media/piggy_nomad.png": "/Apex-Finance/static/media/piggy_nomad.ffc83dc791a7a719aefb.png",
+    "static/media/piggy_learner.png": "/Apex-Finance/static/media/piggy_learner.ab178a1694e0f1e45ff2.png",
+    "index.html": "/Apex-Finance/index.html",
+    "main.8246ae40.css.map": "/Apex-Finance/static/css/main.8246ae40.css.map",
+    "main.ca5e599b.js.map": "/Apex-Finance/static/js/main.ca5e599b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8246ae40.css",
+    "static/js/main.ca5e599b.js"
+  ]
+}
